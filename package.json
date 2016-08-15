@@ -1,0 +1,35 @@
+{
+  "name": "pull-promise",
+  "version": "0.1.0",
+  "description": "Pull the value from a promise using pull-streams",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test:node": "tape test/*.js | tap-spec",
+    "test:lint": "snazzy",
+    "test": "npm-run-all -p test:*",
+    "prepublish": "mkdirp lib && buble -i src -o lib",
+    "release": "xyz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/queckezz/pull-promise"
+  },
+  "author": "Fabian Eichenberger <fabian.eichenberger@gmail.com>",
+  "dependencies": {
+    "pull-stream": "^3.4.3"
+  },
+  "devDependencies": {
+    "npm-run-all": "^2.3.0",
+    "tap-spec": "^4.1.1",
+    "mkdirp": "^0.5.1",
+    "snazzy": "^4.0.0",
+    "buble": "^0.13.1",
+    "tape": "^4.6.0",
+    "xyz": "^1.0.0"
+  },
+  "keywords": [
+    "pull-stream",
+    "promise"
+  ],
+  "license": "MIT"
+}
