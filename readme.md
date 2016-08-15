@@ -4,7 +4,7 @@
 
 [![build status](https://img.shields.io/travis/queckezz/pull-promise.svg?style=flat-square)](https://travis-ci.org/queckezz/pull-promise)
 [![npm version](https://img.shields.io/npm/v/pull-promise.svg?style=flat-square)](https://npmjs.org/package/pull-promise)
-[![dependency status](https://img.shields.io/david/pull-promise.svg?style=flat-square)](https://david-dm.org/queckezz/pull-promise)
+[![dependency status](https://img.shields.io/david/queckezz/pull-promise.svg?style=flat-square)](https://david-dm.org/queckezz/pull-promise)
 [![license](https://img.shields.io/npm/l/pull-promise.svg?style=flat-square)](./license)
 [![code style: standard](https://img.shields.io/badge/code-standard-brightgreen.svg?style=flat-square)](https://github.com/feross/standard)
 
