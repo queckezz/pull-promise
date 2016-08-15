@@ -1,6 +1,6 @@
 # pull-promise
 
-> Pull the value from a promise using pull-streams
+> Pull the value from a promise using [pull-streams](https://pull-stream.github.io/)
 
 [![build status](https://img.shields.io/travis/queckezz/pull-promise.svg?style=flat-square)](https://travis-ci.org/queckezz/pull-promise)
 [![npm version](https://img.shields.io/npm/v/pull-promise.svg?style=flat-square)](https://npmjs.org/package/pull-promise)
@@ -21,7 +21,7 @@ $ npm install pull-promise
 Creates a [sink stream](https://github.com/pull-stream/pull-stream/blob/master/docs/sinks/index.md) with the resolved promise value.
 
 ```js
-const { promiseToSink } = require('./')
+const { promiseToSink } = require('pull-promise')
 
 pull(
   promiseToSink(Promise.resolve(5)),
@@ -35,7 +35,7 @@ pull(
 Creates a [through stream](https://github.com/pull-stream/pull-stream/blob/master/docs/throughs/index.md) with the resolved promise value as output.
 
 ```js
-const { promiseToThrough } = require('./')
+const { promiseToThrough } = require('pull-promise')
 
 const delay = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
