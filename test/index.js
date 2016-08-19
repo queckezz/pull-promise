@@ -1,5 +1,5 @@
 
-const { promiseToThrough, promiseToSink } = require('../src')
+const toPull = require('../')
 const pull = require('pull-stream')
 const test = require('tape')
 
@@ -8,7 +8,7 @@ const delay = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 test('pulls from a simple value', (t) => {
   const num = 5
   pull(
-    promiseToSink(Promise.resolve(5)),
+    toPull.sink(Promise.resolve(5)),
     pull.drain((val) => {
       t.equal(val, num)
       t.end()
@@ -21,7 +21,7 @@ test('pulls from a delay promise', (t) => {
 
   pull(
     pull.values([Date.now()]),
-    promiseToThrough(delay(rate)),
+    toPull.through(delay(rate)),
     pull.drain((val) => {
       const between = Date.now() - val
       t.true(between <= rate + 100)

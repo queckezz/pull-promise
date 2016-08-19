@@ -16,38 +16,38 @@ $ npm install pull-promise
 
 ## API
 
-### `.promiseToSink(Promise)`
+### `.sink(Promise)`
 
 Creates a [sink stream](https://github.com/pull-stream/pull-stream/blob/master/docs/sinks/index.md) with the resolved promise value.
 
 ```js
-const { promiseToSink } = require('pull-promise')
+const toPull = require('pull-promise')
 
 pull(
-  promiseToSink(Promise.resolve(5)),
+  toPull.sink(Promise.resolve(5)),
   pull.log()
 )
 // -> 5
 ```
 
-### `.promiseToThrough(Promise)`
+### `.through(Promise)`
 
 Creates a [through stream](https://github.com/pull-stream/pull-stream/blob/master/docs/throughs/index.md) with the resolved promise value as output.
 
 ```js
-const { promiseToThrough } = require('pull-promise')
+const toPull = require('pull-promise')
 
 const delay = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
 pull(
   pull.values([Date.now()]),
-  promiseToThrough(delay(500)),
+  toPull.through(delay(500)),
   pull.log()
 )
 // -> date after 500ms
 ```
 
-## Tests
+## Run tests
 
 ```bash
 $ npm test 
