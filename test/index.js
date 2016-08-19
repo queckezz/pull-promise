@@ -5,10 +5,10 @@ const test = require('tape')
 
 const delay = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
-test('pulls from a simple value', (t) => {
+test('promise source', (t) => {
   const num = 5
   pull(
-    toPull.sink(Promise.resolve(5)),
+    toPull.source(Promise.resolve(5)),
     pull.drain((val) => {
       t.equal(val, num)
       t.end()
@@ -16,7 +16,7 @@ test('pulls from a simple value', (t) => {
   )
 })
 
-test('pulls from a delay promise', (t) => {
+test('promise through', (t) => {
   const rate = 500
 
   pull(

@@ -1,11 +1,13 @@
 
-module.exports = sink
+const abortCb = require('pull-stream/util/abort-cb')
 
-function sink (promise) {
+module.exports = source
+
+function source (promise, onAbort) {
   var read = false
 
   return function (abort, cb) {
-    if (abort) return
+    if (abort) return abortCb(cb, abort, onAbort)
 
     promise.then(function (v) {
       if (read === false) {

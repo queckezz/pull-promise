@@ -1,3 +1,3 @@
 
 exports.through = require('./through')
-exports.sink = require('./sink')
+exports.source = require('./source')

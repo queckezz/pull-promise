@@ -16,15 +16,15 @@ $ npm install pull-promise
 
 ## API
 
-### `.sink(Promise)`
+### `.source(Promise)`
 
-Creates a [sink stream](https://github.com/pull-stream/pull-stream/blob/master/docs/sinks/index.md) with the resolved promise value.
+Creates a [source stream](https://github.com/pull-stream/pull-stream/blob/master/docs/sources/index.md) with the resolved promise value.
 
 ```js
 const toPull = require('pull-promise')
 
 pull(
-  toPull.sink(Promise.resolve(5)),
+  toPull.source(Promise.resolve(5)),
   pull.log()
 )
 // -> 5
