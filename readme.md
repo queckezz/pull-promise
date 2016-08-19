@@ -18,10 +18,13 @@ $ npm install pull-promise
 
 ### `.source(Promise)`
 
+> Also available as `require('pull-promise/source')`
+
 Creates a [source stream](https://github.com/pull-stream/pull-stream/blob/master/docs/sources/index.md) with the resolved promise value.
 
 ```js
 const toPull = require('pull-promise')
+// or -> const source = require('pull-promise/source')
 
 pull(
   toPull.source(Promise.resolve(5)),
@@ -31,6 +34,8 @@ pull(
 ```
 
 ### `.through(Promise)`
+
+> Also available as `require('pull-promise/through')`
 
 Creates a [through stream](https://github.com/pull-stream/pull-stream/blob/master/docs/throughs/index.md) with the resolved promise value as output.
 
