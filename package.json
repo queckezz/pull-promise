@@ -4,7 +4,7 @@
   "description": "Pull the value from a promise using pull-streams",
   "main": "index.js",
   "scripts": {
-    "test:node": "tape test/*.js | tap-spec",
+    "test:node": "tape test/*.js | tap-dot",
     "test:lint": "snazzy",
     "test": "npm-run-all -p test:*",
     "release": "xyz"
@@ -19,10 +19,8 @@
   },
   "devDependencies": {
     "npm-run-all": "^2.3.0",
-    "tap-spec": "^4.1.1",
-    "mkdirp": "^0.5.1",
     "snazzy": "^4.0.0",
-    "buble": "^0.13.1",
+    "tap-dot": "^1.0.5",
     "tape": "^4.6.0",
     "xyz": "^1.0.0"
   },
