@@ -1,6 +1,6 @@
 {
   "name": "pull-promise",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Pull the value from a promise using pull-streams",
   "main": "index.js",
   "scripts": {
