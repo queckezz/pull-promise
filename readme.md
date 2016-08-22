@@ -14,6 +14,21 @@
 $ npm install pull-promise
 ```
 
+## Example
+
+```js
+const toPull = require('pull-promise/source')
+const pull = require('pull-stream')
+const axios = require('axios')
+
+pull(
+  toPull.source(axios.get('http://example.org/posts/1')),
+  pull.map((response) => response.body),
+  pull.log()
+)
+// -> "quia et suscipit\nsuscipit recusandae..."
+```
+
 ## API
 
 ### `.source(Promise)`
@@ -24,7 +39,6 @@ Creates a [source stream](https://github.com/pull-stream/pull-stream/blob/master
 
 ```js
 const toPull = require('pull-promise')
-// or -> const source = require('pull-promise/source')
 
 pull(
   toPull.source(Promise.resolve(5)),
@@ -33,23 +47,21 @@ pull(
 // -> 5
 ```
 
-### `.through(Promise)`
+### `.through((v) => Promise)`
 
 > Also available as `require('pull-promise/through')`
 
-Creates a [through stream](https://github.com/pull-stream/pull-stream/blob/master/docs/throughs/index.md) with the resolved promise value as output.
+Creates a [through stream](https://github.com/pull-stream/pull-stream/blob/master/docs/throughs/index.md) with the resolved promise value as output. `fn` is a function accepting the incoming value and returning a `Promise`.
 
 ```js
 const toPull = require('pull-promise')
 
-const delay = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
-
 pull(
-  pull.values([Date.now()]),
-  toPull.through(delay(500)),
+  pull.values([2, 4, 8]),
+  toPull.through((v) => Promise.resolve(v * v)),
   pull.log()
 )
-// -> date after 500ms
+// -> 4, 16, 64
 ```
 
 ## Run tests
