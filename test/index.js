@@ -3,7 +3,7 @@ const toPull = require('../')
 const pull = require('pull-stream')
 const test = require('tape')
 
-const delay = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
+const multiply = (v) => Promise.resolve(v * v)
 
 test('promise source', (t) => {
   const num = 5
@@ -17,15 +17,15 @@ test('promise source', (t) => {
 })
 
 test('promise through', (t) => {
-  const rate = 500
-
   pull(
-    pull.values([Date.now()]),
-    toPull.through(delay(rate)),
-    pull.drain((val) => {
-      const between = Date.now() - val
-      t.true(between <= rate + 100)
-      t.true(between >= rate - 100)
+    pull.values([2, 4, 8]),
+    toPull.through(multiply),
+    pull.collect((err, arr) => {
+      if (err) {
+        t.fail()
+      }
+
+      t.deepEqual(arr, [4, 16, 64])
       t.end()
     })
   )
