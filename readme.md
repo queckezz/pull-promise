@@ -17,7 +17,7 @@ $ npm install pull-promise
 ## Example
 
 ```js
-const toPull = require('pull-promise/source')
+const toPull = require('pull-promise')
 const pull = require('pull-stream')
 const axios = require('axios')
 
